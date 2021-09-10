@@ -112,6 +112,10 @@ if(UNIX AND NOT APPLE AND NOT ANDROID)
     target_link_options(ledger-core-interface INTERFACE -Wl,--exclude-libs,libcrypto.a)
 endif()
 
+if(APPLE)
+    target_link_libraries(ledger-core-interface INTERFACE -static -lc++abi)
+endif()
+
 # Portably get access to memset_s, required by sha512256
 target_link_libraries(ledger-core-interface INTERFACE sha512256)
 

@@ -46,7 +46,7 @@ else()
     target_link_libraries(ledger-test PUBLIC crypto)
 endif()
 
-if(UNIX AND NOT APPLE AND NOT ANDROID)
+if(UNIX AND NOT ANDROID)
     target_link_libraries(ledger-test PUBLIC stdc++fs)
 endif()
 
